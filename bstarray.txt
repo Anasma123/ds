@@ -8,7 +8,8 @@ int bst[MAX_SIZE];
 int size = 0;
 
 void initializeBST() {
-    for (int i = 0; i < MAX_SIZE; i++) {
+int i;
+    for (i = 0; i < MAX_SIZE; i++) {
         bst[i] = -1;
     }
 }
