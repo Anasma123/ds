@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+void sort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++)
+        for (int j = 0; j < n - i - 1; j++)
+            if (arr[j] > arr[j + 1]) {
+                int t = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = t;
+            }
+}
+
+void main() {
+    int n, m, a[20], b[20], c[40], i = 0, j = 0, z = 0;
+
+    printf("Enter size of first array: ");
+    scanf("%d", &n);
+    printf("Enter elements of first array: ");
+    for (int x = 0; x < n; x++) scanf("%d", &a[x]);
+
+    printf("Enter size of second array: ");
+    scanf("%d", &m);
+    printf("Enter elements of second array: ");
+    for (int x = 0; x < m; x++) scanf("%d", &b[x]);
+
+    sort(a, n);
+    sort(b, m);
+
+    while (i < n && j < m) c[z++] = (a[i] < b[j]) ? a[i++] : b[j++];
+    while (i < n) c[z++] = a[i++];
+    while (j < m) c[z++] = b[j++];
+
+    printf("The merged sorted array is: ");
+    for (int x = 0; x < n + m; x++) printf("%d ", c[x]);
+    printf("\n");
+}
